@@ -1,0 +1,38 @@
+<body>
+    <button onclick="myFunc()">Click Me</button>
+
+    <script>
+        
+        let tips = [];
+        let totals = [];
+        let sum = null;
+        let bills = [];
+        let getNumberOfArray = prompt('Please enter number of bills you want');
+        for(let i = 1; i <= getNumberOfArray; i++){
+            bills.push(Number(prompt('Please enter value of bills value 1 by 1')));
+        }
+        const calcTip = function(bill){
+            return bill  >= 500 && bill <= 300 ? bill * 0.15 : bill * 0.2 ;
+        }
+        const calcAverage = function (number) {
+            console.log(`total of all the index values ${number}`);
+            console.log(`Average of all the index values ${number / bills.length}`);
+        }
+        function myFunc(){
+            for(i = 0; i <= bills.length - 1  ; i++){
+                sum = sum + bills[i];   
+                console.log(`index values of ${i+1} is ${ bills[i] }`);
+                console.log(sum)
+                if (i === bills.length - 1) {
+                    calcAverage(sum)
+                    console.log(sum)
+                }
+                tips.push(calcTip(bills[i]));
+                totals.push(calcTip(bills[i]) + bills[i]);
+                
+            }
+            console.log(`All the tips which comes of bills ${ tips }`);
+            console.log(`Total of Tips and Bills ${totals}`);
+        }
+    </script>
+</body>
